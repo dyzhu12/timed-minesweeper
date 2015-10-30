@@ -35,6 +35,30 @@ html, body {
 	cursor: pointer;
 }
 
+.clicked {
+	background-color: #47a3d1;
+}
+
+.clicked:hover {
+	background-color: #47a3d1;
+}
+
+.clicked-bomb {
+	background-color: #d14747;
+}
+
+.clicked-bomb:hover {
+	background-color: #d14747;
+}
+
+.number-hidden {
+	display: none;
+}
+
+.number-active {
+	display: inline;
+}
+
 #board {
 	height: 500px;
 }

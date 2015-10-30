@@ -13,8 +13,16 @@ function getRandomInt(min, max) {
 }
 
 function checkIfBomb(i, j) {
-	if (board[i][j] === -1) {
-		console.log('kaboom');
+	var clickedCell = document.getElementById('cell-'+i+'-'+j);
+	var value = parseInt(clickedCell.getAttribute('value'));
+	if (value === -1) {
+		console.log('You lose');
+		clickedCell.classList.add('clicked-bomb');
+	} else {
+		clickedCell.classList.add('clicked');
+		var cellText = clickedCell.firstChild;
+		cellText.classList.remove('number-hidden');
+		cellText.classList.add('number-active');
 	}
 }
 
@@ -30,12 +38,16 @@ function drawBoard() {
 		var row = document.createElement('tr');
 		for (var j = 0; j < cols; j++) {
 			var cell = document.createElement('td');
+			var cellWrapper = document.createElement('p');
 			var cellValue = document.createTextNode(board[i][j]);
 			var clickHandler = 'checkIfBomb('+i+','+j+')';
-			cell.appendChild(cellValue);
+
+			cellWrapper.appendChild(cellValue);
+			cellWrapper.classList.add('number-hidden');
+
+			cell.appendChild(cellWrapper);
 			cell.classList.add('bordered-cell');
-			cell.setAttribute('row', i);
-			cell.setAttribute('col', j);
+			cell.setAttribute('id', 'cell-'+i+'-'+j);
 			cell.setAttribute('value', board[i][j]);
 			cell.setAttribute('onclick', clickHandler);
 			row.appendChild(cell);
