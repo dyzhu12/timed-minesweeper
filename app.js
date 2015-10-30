@@ -65,9 +65,13 @@ function checkNeighbors(i, j) {
 	var yMax = j+1 > cols-1 ? cols-1: j+1;
 
 	if (board[xMin][yMin] === -1) board[i][j]++;
+	if (board[xMin][j] === -1) board[i][j]++;
 	if (board[xMin][yMax] === -1) board[i][j]++;
 	if (board[xMax][yMin] === -1) board[i][j]++;
+	if (board[xMax][j] === -1) board[i][j]++;
 	if (board[xMax][yMax] === -1) board[i][j]++;
+	if (board[i][yMin] === -1) board[i][j]++;
+	if (board[i][yMax] === -1) board[i][j]++;
 
 }
 
@@ -124,6 +128,10 @@ function init(difficulty) {
 			}
 		}
 	}
+
+	// Remove the difficulty buttons for now
+	var container = document.getElementById('game-container');
+	container.removeChild(document.getElementById('options'));
 
 	drawBoard();
 }
