@@ -4,6 +4,7 @@ var minesOnBoard;
 var cols;
 var rows;
 var board = [];
+var correctSquareDiscovered = 0;
 
 // Utility function
 function getRandomInt(min, max) {
@@ -17,14 +18,20 @@ function checkIfBomb(i, j) {
 
 	if (value === -1) {
 		clickedCell.classList.add('clicked-bomb');
-		console.log(document.getElementById('end-message'));
 		document.getElementById('end-message').innerHTML = 'YOU LOSE';
 		document.getElementById('end-shadow').classList.remove('na');
-	} else {
+	} else if (!clickedCell.classList.contains('clicked')) {
 		clickedCell.classList.add('clicked');
 		cellText.classList.remove('number-hidden');
 		cellText.classList.add('number-active');
+		correctSquareDiscovered++;
+		console.log(correctSquareDiscovered);
+		if (correctSquareDiscovered === ((cols * rows) - totalMines)) {
+			document.getElementById('end-message').innerHTML = 'YOU WIN';
+			document.getElementById('end-shadow').classList.remove('na');
+		}
 	}
+
 }
 
 function drawBoard() {
@@ -141,4 +148,13 @@ function init(difficulty) {
 	}
 
 	drawBoard();
+}
+
+function reset() {
+	for (var i = 0; i < rows; i++) {
+		board[i] = undefined;
+	}
+	correctSquareDiscovered = 0;
+	init(0);
+	document.getElementById('end-shadow').classList.add('na');
 }
