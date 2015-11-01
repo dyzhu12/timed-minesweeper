@@ -18,6 +18,7 @@ li:hover {
 }
 
 .sidebar-wrapper {
+	z-index: 1;
 	background-color: #d14747;
 	position: absolute;
 	height: 100%;
@@ -64,6 +65,30 @@ li:hover {
 	border: 1px solid black;
 	width: 50px;
 	height: 50px;
+}
+
+@media(max-width: 900px) {
+	.bordered-cell {
+		border: 1px solid black;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+@media(max-width: 750px) {
+	.bordered-cell {
+		border: 1px solid black;
+		width: 30px;
+		height: 30px;
+	}
+}
+
+@media(max-width: 600px) {
+	.bordered-cell {
+		border: 1px solid black;
+		width: 25px;
+		height: 25px;
+	}
 }
 
 .bordered-cell:hover {

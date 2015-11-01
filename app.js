@@ -17,7 +17,7 @@ function getRandomInt(min, max) {
 
 function checkIfBomb(i, j) {
 	var clickedCell = document.getElementById('cell-' + i + '-' + j);
-	var value = parseInt(clickedCell.getAttribute('value'));
+	var value = board[i][j];
 	var cellText = clickedCell.firstChild;
 
 	if (value === -1) {
