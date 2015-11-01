@@ -3,10 +3,39 @@ html, body {
 	margin: 0;
 }
 
+.active {
+	background-color: white;
+	color: black;
+}
+
+li {
+	padding: 10px;
+}
+
 .sidebar-wrapper {
+	background-color: #424242;
 	position: absolute;
 	height: 100%;
-	padding-left: 10px;
+	padding-left: 20px;
+	width: 200px;
+	overflow: hidden;
+	color: white;
+	transition: width 0.5s ease-out;
+}
+
+.hidden {
+	overflow: hidden;
+	width: 0;
+}
+
+.sidebar-toggle {
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	width: 25px;
+	height: 25px;
+	background-color: #d14747;
+	cursor: pointer;
 }
 
 .container {
@@ -38,7 +67,6 @@ html, body {
 	border: 1px solid black;
 	width: 50px;
 	height: 50px;
-	background-color: gray;
 }
 
 .bordered-cell:hover {
@@ -68,6 +96,20 @@ html, body {
 
 .number-active {
 	display: inline;
+}
+
+.social-link {
+	text-decoration: none;
+	color: white;
+}
+
+.sidebar-group {
+	font-size: 20px;
+}
+
+.links {
+	position: absolute;
+	bottom: 25px;
 }
 
 #board {

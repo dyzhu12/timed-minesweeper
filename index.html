@@ -4,22 +4,23 @@
 		<link href='css/style.css' rel='stylesheet' type='text/css'>
 	</head>
 	<body onload='init(0)'>
-		<div class='sidebar-wrapper'>
+		<div onmouseover='openSidebar()' onmouseleave='closeSidebar()' id='sidebar' class='sidebar-wrapper hidden'>
 			<h1>Dyz's Minesweeper</h1>
-			<div>
+			<div class='sidebar-group'>
 				<ul class='difficulty-list'>
-					<li class='difficulty'><a class='btn'>Easy</a></li>
+					<li class='difficulty active'><a class='btn'>Easy</a></li>
 					<li class='difficulty'><a class='btn'>Medium</a></li>
 					<li class='difficulty'><a class='btn'>Hard</a></li>
 				</ul>
 			</div>
-			<div class='links'>
-
+			<div class='links sidebar-group'>
+				<a class='social-link' href='http://github.com/dyzhu12/timed-minesweeper' target='_blank'>GitHub</a>
 			</div>
 		</div>
 		<div class='container' id='game-container'>
 			<div id='board'></div>
 		</div>
 		<script src='app.js'></script>
+		<script src='sidebartoggle.js'></script>
 	</body>
 </html>
