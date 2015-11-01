@@ -18,7 +18,7 @@ li:hover {
 }
 
 .sidebar-wrapper {
-	background-color: #424242;
+	background-color: #d14747;
 	position: absolute;
 	height: 100%;
 	padding-left: 20px;
@@ -26,16 +26,6 @@ li:hover {
 	overflow: hidden;
 	color: white;
 	transition: width 0.5s ease-out;
-}
-
-.sidebar-toggle {
-	position: absolute;
-	top: 25px;
-	left: 25px;
-	width: 25px;
-	height: 25px;
-	background-color: #d14747;
-	cursor: pointer;
 }
 
 .container {
@@ -150,4 +140,8 @@ li:hover {
 }
 #board {
 	height: 500px;
+}
+
+#score-board {
+	text-align: left;
 }

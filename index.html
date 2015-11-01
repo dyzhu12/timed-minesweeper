@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<link href='css/style.css' rel='stylesheet' type='text/css'>
-		<link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 	</head>
 	<body onload='init(0)'>
 		<div onmouseover='openSidebar()' onmouseleave='closeSidebar()' id='sidebar' class='sidebar-wrapper hidden'>
@@ -19,6 +18,8 @@
 			</div>
 		</div>
 		<div class='container' id='game-container'>
+			<div id='score-board'>Points: 0</div>
+			<div id='timer'></div>
 			<div id='board'></div>
 		</div>
 		<div id='end-shadow' class='end-game na'>

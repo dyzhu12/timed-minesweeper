@@ -5,6 +5,10 @@ var cols;
 var rows;
 var board = [];
 var correctSquareDiscovered = 0;
+var points = 0;
+
+var clickTime = 5;
+var timeLeft = 1;
 
 // Utility function
 function getRandomInt(min, max) {
@@ -25,7 +29,8 @@ function checkIfBomb(i, j) {
 		cellText.classList.remove('number-hidden');
 		cellText.classList.add('number-active');
 		correctSquareDiscovered++;
-		console.log(correctSquareDiscovered);
+		points += 100 * timeLeft;
+		document.getElementById('score-board').innerHTML = 'Points: ' + points;
 		if (correctSquareDiscovered === ((cols * rows) - totalMines)) {
 			document.getElementById('end-message').innerHTML = 'YOU WIN';
 			document.getElementById('end-shadow').classList.remove('na');
@@ -155,6 +160,8 @@ function reset() {
 		board[i] = undefined;
 	}
 	correctSquareDiscovered = 0;
+	points = 0;
+	document.getElementById('score-board').innerHTML = 'Points: ' + points;
 	init(0);
 	document.getElementById('end-shadow').classList.add('na');
 }
