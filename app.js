@@ -59,19 +59,19 @@ function drawBoard() {
 }
 
 function checkNeighbors(i, j) {
-	var xMin = i-1 < 0 ? 0 : i-1;
-	var xMax = i+1 > rows-1 ? rows-1 : i+1;
-	var yMin = j-1 < 0 ? 0 : j-1;
-	var yMax = j+1 > cols-1 ? cols-1: j+1;
+	var xMin = i-1 < 0 ? undefined : i-1;
+	var xMax = i+1 > rows-1 ? undefined : i+1;
+	var yMin = j-1 < 0 ? undefined : j-1;
+	var yMax = j+1 > cols-1 ? undefined : j+1;
 
-	if (board[xMin][yMin] === -1) board[i][j]++;
-	if (board[xMin][j] === -1) board[i][j]++;
-	if (board[xMin][yMax] === -1) board[i][j]++;
-	if (board[xMax][yMin] === -1) board[i][j]++;
-	if (board[xMax][j] === -1) board[i][j]++;
-	if (board[xMax][yMax] === -1) board[i][j]++;
-	if (board[i][yMin] === -1) board[i][j]++;
-	if (board[i][yMax] === -1) board[i][j]++;
+	if (xMin !== undefined && yMin !== undefined && board[xMin][yMin] === -1) board[i][j]++;
+	if (xMin !== undefined && board[xMin][j] === -1) board[i][j]++;
+	if (xMin !== undefined && yMax !== undefined && board[xMin][yMax] === -1) board[i][j]++;
+	if (xMax !== undefined && yMin !== undefined && board[xMax][yMin] === -1) board[i][j]++;
+	if (xMax !== undefined && board[xMax][j] === -1) board[i][j]++;
+	if (xMax !== undefined && yMax !== undefined && board[xMax][yMax] === -1) board[i][j]++;
+	if (yMin !== undefined && board[i][yMin] === -1) board[i][j]++;
+	if (yMax !== undefined && board[i][yMax] === -1) board[i][j]++;
 
 }
 
