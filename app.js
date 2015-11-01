@@ -1,33 +1,30 @@
 var totalMines;
 var minesLeft;
 var minesOnBoard;
-
 var cols;
 var rows;
-
 var board = [];
 
-
+// Utility function
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max-min) + min);
 }
 
 function checkIfBomb(i, j) {
-	var clickedCell = document.getElementById('cell-'+i+'-'+j);
+	var clickedCell = document.getElementById('cell-' + i + '-' + j);
 	var value = parseInt(clickedCell.getAttribute('value'));
+	var cellText = clickedCell.firstChild;
+
 	if (value === -1) {
-		console.log('You lose');
 		clickedCell.classList.add('clicked-bomb');
 	} else {
 		clickedCell.classList.add('clicked');
-		var cellText = clickedCell.firstChild;
 		cellText.classList.remove('number-hidden');
 		cellText.classList.add('number-active');
 	}
 }
 
 function drawBoard() {
-
 	var table = document.createElement('table');
 	var tbody = document.createElement('tbody');
 
@@ -36,6 +33,7 @@ function drawBoard() {
 
 	for (var i = 0; i < rows; i++) {
 		var row = document.createElement('tr');
+
 		for (var j = 0; j < cols; j++) {
 			var cell = document.createElement('td');
 			var cellWrapper = document.createElement('p');
@@ -59,10 +57,10 @@ function drawBoard() {
 }
 
 function checkNeighbors(i, j) {
-	var xMin = i-1 < 0 ? undefined : i-1;
-	var xMax = i+1 > rows-1 ? undefined : i+1;
-	var yMin = j-1 < 0 ? undefined : j-1;
-	var yMax = j+1 > cols-1 ? undefined : j+1;
+	var xMin = i - 1 < 0 ? undefined : i - 1;
+	var xMax = i + 1 > rows - 1 ? undefined : i + 1;
+	var yMin = j - 1 < 0 ? undefined : j - 1;
+	var yMax = j + 1 > cols - 1 ? undefined : j + 1;
 
 	if (xMin !== undefined && yMin !== undefined && board[xMin][yMin] === -1) board[i][j]++;
 	if (xMin !== undefined && board[xMin][j] === -1) board[i][j]++;
@@ -76,8 +74,6 @@ function checkNeighbors(i, j) {
 }
 
 function init(difficulty) {
-	console.log(difficulty);
-	// Set the mine count
 	switch (difficulty) {
 		case 0:
 			totalMines = 10;
@@ -112,6 +108,7 @@ function init(difficulty) {
 		}
 	}
 	
+	// Populate mines
 	while (minesOnBoard < totalMines) {
 		var randomX = getRandomInt(0, rows);
 		var randomY = getRandomInt(0, cols);
@@ -131,7 +128,7 @@ function init(difficulty) {
 		}
 	}
 
-	// Remove the difficulty buttons for now
+	// Remove the difficulty buttons for now - should move this into an 'Options' sidepanel or such
 	var container = document.getElementById('game-container');
 	container.removeChild(document.getElementById('options'));
 
