@@ -2,15 +2,16 @@
 <html>
 	<head>
 		<link href='css/style.css' rel='stylesheet' type='text/css'>
+		<link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 	</head>
 	<body onload='init(0)'>
 		<div onmouseover='openSidebar()' onmouseleave='closeSidebar()' id='sidebar' class='sidebar-wrapper hidden'>
 			<h1>Dyz's Minesweeper</h1>
 			<div class='sidebar-group'>
 				<ul class='difficulty-list'>
-					<li class='difficulty active'><a class='btn'>Easy</a></li>
-					<li class='difficulty'><a class='btn'>Medium</a></li>
-					<li class='difficulty'><a class='btn'>Hard</a></li>
+					<li onclick='init(0)' class='difficulty active'><a class='btn'>Easy</a></li>
+					<!-- <li onclick='init(1)' class='difficulty'><a class='btn'>Medium</a></li> -->
+					<!-- <li onclick='init(2)' class='difficulty'><a class='btn'>Hard</a></li> -->
 				</ul>
 			</div>
 			<div class='links sidebar-group'>
@@ -19,6 +20,13 @@
 		</div>
 		<div class='container' id='game-container'>
 			<div id='board'></div>
+		</div>
+		<div id='end-shadow' class='end-game na'>
+			<div class='end'></div>
+			<div class='end-text'>
+				<p id='end-message'>YOU WIN</p>
+				<a class='btn end-btn'>Play again?</a>
+			</div>
 		</div>
 		<script src='app.js'></script>
 		<script src='sidebartoggle.js'></script>

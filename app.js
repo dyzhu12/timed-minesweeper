@@ -17,6 +17,9 @@ function checkIfBomb(i, j) {
 
 	if (value === -1) {
 		clickedCell.classList.add('clicked-bomb');
+		console.log(document.getElementById('end-message'));
+		document.getElementById('end-message').innerHTML = 'YOU LOSE';
+		document.getElementById('end-shadow').classList.remove('na');
 	} else {
 		clickedCell.classList.add('clicked');
 		cellText.classList.remove('number-hidden');
@@ -74,6 +77,11 @@ function checkNeighbors(i, j) {
 }
 
 function init(difficulty) {
+	// Clear the board
+	var node = document.getElementById('board');
+	while (node.firstChild) {
+    	node.removeChild(node.firstChild);
+	}
 	switch (difficulty) {
 		case 0:
 			totalMines = 10;
@@ -84,10 +92,14 @@ function init(difficulty) {
 		case 1:
 			totalMines = 40;
 			minesLeft = 40;
+			cols = 16;
+			rows = 16;
 			break;
 		case 2:
 			totalMines = 99;
 			minesLeft = 99;
+			cols = 24;
+			rows = 24;
 			break;
 		default:
 			totalMines = 10;
