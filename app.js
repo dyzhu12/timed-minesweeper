@@ -112,12 +112,14 @@ function init(difficulty) {
 		}
 	}
 	
-	while (minesOnBoard <= totalMines) {
+	while (minesOnBoard < totalMines) {
 		var randomX = getRandomInt(0, rows);
 		var randomY = getRandomInt(0, cols);
 
-		board[randomX][randomY] = -1;
-		minesOnBoard++;
+		if (board[randomX][randomY] !== -1) {
+			board[randomX][randomY] = -1;
+			minesOnBoard++;
+		}
 	}
 
 	// Now go through game board again and check neighbors
