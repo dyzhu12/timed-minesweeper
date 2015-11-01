@@ -1,26 +1,37 @@
 html, body {
 	height: 100%;
+	margin: 0;
+}
+
+.sidebar-wrapper {
+	position: absolute;
+	height: 100%;
+	padding-left: 10px;
 }
 
 .container {
+	position: absolute;
 	text-align: center;
-	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.difficulty-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.difficulty {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
 }
 
 .btn {
-	background-color: gray;
-	color: white;
 	cursor: pointer;
-	margin: 10px;
-	padding: 10px;
-}
-
-.btn:hover {
-	background-color: #A9A9A9;
-}
-
-.bordered {
-	padding-top: 50px;
+	margin-top: 10px;
+	position: relative;
 }
 
 .bordered-cell {

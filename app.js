@@ -128,9 +128,5 @@ function init(difficulty) {
 		}
 	}
 
-	// Remove the difficulty buttons for now - should move this into an 'Options' sidepanel or such
-	var container = document.getElementById('game-container');
-	container.removeChild(document.getElementById('options'));
-
 	drawBoard();
 }

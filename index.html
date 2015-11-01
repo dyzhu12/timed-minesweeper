@@ -3,14 +3,21 @@
 	<head>
 		<link href='css/style.css' rel='stylesheet' type='text/css'>
 	</head>
-	<body>
-		<div class='container' id='game-container'>
+	<body onload='init(0)'>
+		<div class='sidebar-wrapper'>
 			<h1>Dyz's Minesweeper</h1>
-			<div id='options'>
-				<a class='btn' onclick='init(0)'>Easy</a>
-				<a class='btn' onclick='init(1)'>Medium</a>
-				<a class='btn' onclick='init(2)'>Hard</a>
+			<div>
+				<ul class='difficulty-list'>
+					<li class='difficulty'><a class='btn'>Easy</a></li>
+					<li class='difficulty'><a class='btn'>Medium</a></li>
+					<li class='difficulty'><a class='btn'>Hard</a></li>
+				</ul>
 			</div>
+			<div class='links'>
+
+			</div>
+		</div>
+		<div class='container' id='game-container'>
 			<div id='board'></div>
 		</div>
 		<script src='app.js'></script>
